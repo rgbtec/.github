@@ -1,6 +1,6 @@
 Lista dos repositórios [Planilha](https://edsonrgbsyscom.sharepoint.com/:x:/g/ESNKvhUfGXBCsp5JftJO8uwB1VS3mznc9XyJkUdb1Aqdow?e=6wrgvy)
 
-|Nome|Repositório|Descrição|
+|Nome|Link para Repositório (não usar para clonar)|Descrição|
 |----|-----------|---------|
 |API Minhas Debentures|https://github.com/rgbtec/debenturista-api|Api que autentica o credor e permite consultar os dados dos debenturistas|
 |APP Minhas Debentures|https://github.com/rgbtec/debenturista-app|App voltado para o debenturista|
