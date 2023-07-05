@@ -41,7 +41,7 @@ Lista dos repositórios [Planilha](https://edsonrgbsyscom.sharepoint.com/:x:/g/E
 |Site Scr Banco Central|https://github.com/rgbtec/scrbancocentral-site|Site para acesso à api Scr do Banco Central|
 |Site DocZen|https://github.com/rgbtec/doczen-site|Site com a docmentação das apis|
 |API CRDC|https://github.com/rgbtec/crdc-api|Api intermediária para acesso ao CRDC|
-|JOB CRDC|https://github.com/rgbtec/job-crdc|Job para consulta ao CRDC|
+|JOB CRDC|https://github.com/rgbtec/crdc-job|Job para consulta ao CRDC|
 |API CEP|https://github.com/rgbtec/cep-api|Api intermediária para consulta de ceps|
 |API Central de Email|https://github.com/rgbtec/centralemail-api|Api intermediária para envio de emails|
 |API Auetnticação 2 Fatores|https://github.com/rgbtec/autenticacaodoisfatores-api|Api intermediária para autenticação em 2 fatores|
