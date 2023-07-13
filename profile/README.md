@@ -1,7 +1,7 @@
 Lista dos repositórios [Planilha](https://edsonrgbsyscom.sharepoint.com/:x:/g/ESNKvhUfGXBCsp5JftJO8uwB1VS3mznc9XyJkUdb1Aqdow?e=6wrgvy)
 
-|Nome|Link para Repositório (não usar para clonar)|Descrição|
-|----|-----------|---------|
+|Nome|Link para Repositório (não usar para clonar)|Descrição|CI/CD|
+|----|-----------|---------|-----|
 |API Minhas Debentures|https://github.com/rgbtec/debenturista-api|Api que autentica o credor e permite consultar os dados dos debenturistas|
 |APP Minhas Debentures|https://github.com/rgbtec/debenturista-app|App voltado para o debenturista|
 |API Koperar GER|https://github.com/rgbtec/koperarger-api|API usada pelo Site Koperar|
@@ -39,7 +39,7 @@ Lista dos repositórios [Planilha](https://edsonrgbsyscom.sharepoint.com/:x:/g/E
 |WSQuickStatus|https://github.com/rgbtec/quickstatus-api|Webservice para receber assinaturas feitas via Quicksoft|
 |API Scr Banco Central|https://github.com/rgbtec/scrbancocentral-api|"Api que autentica o o usuário e permite a administração dos dados de clientes, usuários dos clientes e consultas a api Scr do Banco Central"|
 |Site Scr Banco Central|https://github.com/rgbtec/scrbancocentral-site|Site para acesso à api Scr do Banco Central|
-|Site DocZen|https://github.com/rgbtec/doczen-site|Site com a docmentação das apis|
+|Site DocZen|https://github.com/rgbtec/doczen-site|Site com a docmentação das apis|![CI/CD](https://github.com/rgbtec/doczen-site/workflows/CI/CD/badge.svg)|
 |API CRDC|https://github.com/rgbtec/crdc-api|Api intermediária para acesso ao CRDC|
 |JOB CRDC|https://github.com/rgbtec/crdc-job|Job para consulta ao CRDC|
 |API CEP|https://github.com/rgbtec/cep-api|Api intermediária para consulta de ceps|
