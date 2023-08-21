@@ -41,7 +41,7 @@
 |MR Sacado (Api) [:speech_balloon:](## "API usada pelo MR Sacado para acessar as informaçães")|https://github.com/rgbtec/mrsacado-api|
 |Monitoramento NFE da Vadu (Api) [:speech_balloon:](## "API usada para receber informaçães da Vadu referentes à moniotramento de NFE")|https://github.com/rgbtec/monitoramentonfevadu-api|
 |Não Confirmados [:speech_balloon:](## "Projeto específico que foi feito pela RGB de consulta de log de confirmação Para o cliente Lavoro")|https://github.com/rgbtec/naoconfirmados-site|
-|Proposta (Api) [:speech_balloon:](## "API usada pelo GER para importação de arquivos para criação de propostas")|https://github.com/rgbtec/proposta-api|
+|Proposta (Api) [:speech_balloon:](## "API usada pelo GER para importação de arquivos para criação de propostas")|https://github.com/rgbtec/proposta-api|<table><tr><td>DEV</td><td>HML</td><td>PRD</td></tr><tr><td>[![PropostaApi](https://github.com/rgbtec/proposta-api/actions/workflows/develop.yml/badge.svg?branch=develop)](https://github.com/rgbtec/proposta-api/actions/workflows/develop.yml)</td><td></td><td></td></tr></table>
 |Proposta (Job) [:speech_balloon:](## "Job usado pelo GER em conjunto com a API Proposta para importação de arquivos para criação de propostas")|https://github.com/rgbtec/proposta-job|
 |Recuperar índices (Api)  [:speech_balloon:](## "Api que busca índices em api ou site de terceiros")|https://github.com/rgbtec/recuperaindices-api|
 |Repositório SQL [:speech_balloon:](## "Scripts de atualização de objetos da base e funçães e stored procedures")|https://github.com/rgbtec/sqlrepositorio|
