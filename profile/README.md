@@ -1,5 +1,8 @@
+**Documentos**
+- Documentação das tabelas, parâmetros e permissões: https://github.com/rgbtec/documentacao/wiki
+- Planilha dos repositórios : [Planilha](https://edsonrgbsyscom.sharepoint.com/:x:/g/ESNKvhUfGXBCsp5JftJO8uwB1VS3mznc9XyJkUdb1Aqdow?e=6wrgvy)
 
-Lista dos repositórios [Planilha](https://edsonrgbsyscom.sharepoint.com/:x:/g/ESNKvhUfGXBCsp5JftJO8uwB1VS3mznc9XyJkUdb1Aqdow?e=6wrgvy)
+**Lista dos repositórios** 
 
 |Nome|Link para Repositório (não usar para clonar)|CI/CD|
 |----|--------------------------------------------|-----|
