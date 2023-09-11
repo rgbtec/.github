@@ -12,8 +12,6 @@
 |Boleto (Api) [:speech_balloon:](## "API usada para gerar boletos de diversos bancos")|[Link](https://github.com/rgbtec/boleto-api)|
 |C RGBSYS web [:speech_balloon:](## "Testes automatizados do GER")|[Link](https://github.com/rgbtec/ger-testesautomatizados)|
 |Central de Email (Api) [:speech_balloon:](## "Api intermediária para envio de emails")|[Link](https://github.com/rgbtec/centralemail-api)|
-|CRDC (Api) [:speech_balloon:](## "Api intermediária para acesso ao CRDC")|[Link](https://github.com/rgbtec/crdc-api)|
-|CRDC (Job) [:speech_balloon:](## "Job para consulta ao CRDC")|[Link](https://github.com/rgbtec/crdc-job)|
 |CRM [:speech_balloon:](## "API usada por sistemas de terceiros para gravar ou consultar a base do GER")|[Link](https://github.com/rgbtec/crmrgb-api)|
 |CEP (Api) [:speech_balloon:](## "Api intermediária para consulta de ceps")|[Link](https://github.com/rgbtec/cep-api)|
 |Deepia Aprovação [:speech_balloon:](## "API intermediária entre o GER e a Deepia para análise de propostas")|[Link](https://github.com/rgbtec/deepiaaprovacao-api)|
@@ -45,6 +43,8 @@
 |Proposta (Api) [:speech_balloon:](## "API usada pelo GER para importação de arquivos para criação de propostas")|[Link](https://github.com/rgbtec/proposta-api)|[![Deploy](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml/badge.svg?branch=develop)](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml)
 |Proposta (Job) [:speech_balloon:](## "Job usado pelo GER em conjunto com a API Proposta para importação de arquivos para criação de propostas")|[Link](https://github.com/rgbtec/proposta-job)|[![Deploy](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml/badge.svg?branch=develop)](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml)|
 |Recuperar índices (Api)  [:speech_balloon:](## "Api que busca índices em api ou site de terceiros")|[Link](https://github.com/rgbtec/recuperaindices-api)|
+|Registro Recebíveis (Api) [:speech_balloon:](## "Api intermediária para acesso ao Registro Recebíveis")|[Link](https://github.com/rgbtec/registrorecebiveis-api)|
+|Registro Recebíveis (Job) [:speech_balloon:](## "Job para consulta ao Registro Recebíveis")|[Link](https://github.com/rgbtec/registrorecebiveis-job)|
 |Repositório SQL [:speech_balloon:](## "Scripts de atualização de objetos da base e funçães e stored procedures")|[Link](https://github.com/rgbtec/sqlrepositorio)|
 |Scr Banco Central (Api) [:speech_balloon:](## "Api que autentica o o usuário e permite a administração dos dados de clientes, usuários dos clientes e consultas a api Scr do Banco Central")|[Link](https://github.com/rgbtec/scrbancocentral-api)|
 |Scr Banco Central (Site) [:speech_balloon:](## "Site para acesso à api Scr do Banco Central")|[Link](https://github.com/rgbtec/scrbancocentral-site)|
