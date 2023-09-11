@@ -4,7 +4,7 @@
 
 **Lista dos repositórios** 
 
-|Nome|Link para Repositório|Dev|Hml|Prd|
+|Nome|Repositório|CI/CD Dev|CI/CD Hml|CI/CD Prd|
 |----|---------------------|---|---|---|
 |Autenticação 2 Fatores (Api) [:speech_balloon:](## "Api intermediária para autenticação em 2 fatores")|[Link](https://github.com/rgbtec/autenticacaodoisfatores-api)|
 |Autoprod [:speech_balloon:](## "Site Autoprod")|[Link](https://github.com/rgbtec/autoprod-site)|
@@ -54,7 +54,7 @@
 |WsNFSe (Ws) [:speech_balloon:](## "Monitor de notas ficais")|[Link](https://github.com/rgbtec/wsnfse-api)|
 |WSQuickStatus [:speech_balloon:](## "Webservice para receber assinaturas feitas via Quicksoft")|[Link](https://github.com/rgbtec/quickstatus-api)|
 
-|Nome|Link para Repositório <br> (não usar para clonar)|Projetos da solution|
+|Nome|Repositório|Projetos da solution|
 |----|--------------------------------------------|-----|
 |RGBService|[Link](https://github.com/rgbtec/rgbservice)|<br> - API Deepia - API intermediária entre o GER e a Deepia para executar análise de crédito<br> - API Grafeno - API intermediária entre o GER e a Grafeno para envio de titulos para cobrança<br> - API Lydians - API intermediária entre o GER e a Lydians para envio de borderôs<br> - API Motor de Decisão Vadu - API usada pelo GER para enviar dados de propostas para analise de crédito na Vadu<br> - API NFE Report - API usada pelo GER para gerar um PDF da nota fiscal a partir do arquivo XML<br> - Conexão BD - Exe usado para gerar string de conexão criptografada para o GER e GER3<br> - Robo Extrator Vadu - "Programa usado para extrair dados das bases dos clientes e enviar para a Vadu, diariamente."|
 |ServicosRGB|[Link](https://github.com/rgbtec/servicosrgb)|- API Koperador - API usada pelo Koperador web e Koperador APP<br> - API Meus Recebíveis - API utilizada pelo MR App e MR Site<br> - API Monkey - API que recebe webhooks enviados pela Monkey<br> - API Notificaçães - API usada para notifcaçães dos APPs da RGB<br> - API Relat - API usada para transformar html em um arquivo PDF<br> - Autoprod - API para acesso a infoirmaçães do Autoprod<br> - Chosen - Api para retono das URLs das apis utiizadas pelos Apps<br> - ServicosRGB - Site para cadastrar informaçães de clientes para ViewsVadu e Chosen<br> - ViewVadu - Api para retorno de várias configuraçães. Em alguns clientes é substituído por um arquivo Json|
