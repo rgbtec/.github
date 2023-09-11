@@ -4,8 +4,8 @@
 
 **Lista dos repositórios** 
 
-|Nome|Link para Repositório <br> (não usar para clonar)|CI/CD|
-|----|--------------------------------------------|-----|
+|Nome|Link para Repositório|Dev|Hml|Prd|
+|----|---------------------|---|---|---|
 |Autenticação 2 Fatores (Api) [:speech_balloon:](## "Api intermediária para autenticação em 2 fatores")|[Link](https://github.com/rgbtec/autenticacaodoisfatores-api)|
 |Autoprod [:speech_balloon:](## "Site Autoprod")|[Link](https://github.com/rgbtec/autoprod-site)|
 |BoaVista (Site) [:speech_balloon:](## "???")|[Link](https://github.com/rgbtec/boavista-site)|
@@ -19,7 +19,7 @@
 |Deepia Aprovação [:speech_balloon:](## "API intermediária entre o GER e a Deepia para análise de propostas")|[Link](https://github.com/rgbtec/deepiaaprovacao-api)|
 |DocZen (Api) [:speech_balloon:](## "API usada pelo Site doczen_web")|[Link](https://github.com/rgbtec/doczen-api)|
 |DocZen Adm (Site) [:speech_balloon:](## "Site de documentação das APIs da RGB")|[Link](https://github.com/rgbtec/doczenadmin-site)|
-|DocZen (Site) [:speech_balloon:](## "Site com a documentação das apis")|[Link](https://github.com/rgbtec/doczen-site)|![CI/CD](https://github.com/rgbtec/doczen-site/workflows/CI/CD/badge.svg)|
+|DocZen (Site) [:speech_balloon:](## "Site com a documentação das apis")|[Link](https://github.com/rgbtec/doczen-site)|||![CI/CD](https://github.com/rgbtec/doczen-site/workflows/CI/CD/badge.svg)|
 |Esteira de Credito [:speech_balloon:](## "Rotina de análise de crédito para aprovação ou reprovação de títulos em propostas")|[Link](https://github.com/rgbtec/esteiracredito-job)|
 |FlooxUS (Site) [:speech_balloon:](## "Site que permite o sacado acessar informaçães no sistema")|[Link](https://github.com/rgbtec/flooxus-site)|
 |Ger (Site) [:speech_balloon:](## "Sistema para gerenciamento de recebíveis")|[Link](https://github.com/rgbtec/ger-site)|
@@ -34,7 +34,7 @@
 |Minhas Debentures (Api) [:speech_balloon:](## "Api que autentica o credor e permite consultar os dados dos debenturistas")|[Link](https://github.com/rgbtec/debenturista-api)|
 |Minhas Debentures (App) [:speech_balloon:](## "App voltado para o debenturista")|[Link](https://github.com/rgbtec/debenturista-app)|
 |Mobicredito (Api) [:speech_balloon:](## "Api para atender o App Mobicredito")|[Link](https://github.com/rgbtec/mobicredito-api)|
-|Mobicredito (App) [:speech_balloon:](## "")|[Link](https://github.com/rgbtec/mobicredito-app)|<table> <tbody>  <tr>  <td>Android</td>  <td>![CI/CD](https://build.appcenter.ms/v0.1/apps/813c5869-9e83-472c-98aa-82a5bb43481d/branches/main/badge)</td>  </tr>  <tr>  <td>iOS</td>  <td>![CI/CD](https://build.appcenter.ms/v0.1/apps/bff4aef2-8f78-492f-bdda-69546f65400d/branches/main/badge)</td>  </tr>  </tbody>  </table>|
+|Mobicredito (App) [:speech_balloon:](## "")|[Link](https://github.com/rgbtec/mobicredito-app)||||
 |MR (App) [:speech_balloon:](## "App que permite ao cedente consultar informaçães dele no sistema GER")|[Link](https://github.com/rgbtec/meusrecebiveis-app)|
 |MR (Site) [:speech_balloon:](## "Site usado pelos cedentes para gravar e consultar informaçães do GER. Nova versão do Webfact")|[Link](https://github.com/rgbtec/meusrecebiveis-site)|
 |MR Sacado (Site) [:speech_balloon:](## "Site para os sacados acessarem informaçães no GER")|[Link](https://github.com/rgbtec/mrsacado-site)|
@@ -42,16 +42,19 @@
 |Monitoramento NFE (Api) [:speech_balloon:](## "API usada para receber informaçães da CashU à moniotramento de NFE")|[Link](https://github.com/rgbtec/monitoramentonfe-api)|
 |Monitoramento NFE da Vadu (Api) [:speech_balloon:](## "API usada para receber informaçães da Vadu referentes à moniotramento de NFE")|[Link](https://github.com/rgbtec/monitoramentonfevadu-api)|
 |Não Confirmados [:speech_balloon:](## "Projeto específico que foi feito pela RGB de consulta de log de confirmação Para o cliente Lavoro")|[Link](https://github.com/rgbtec/naoconfirmados-site)|
-|Proposta (Api) [:speech_balloon:](## "API usada pelo GER para importação de arquivos para criação de propostas")|[Link](https://github.com/rgbtec/proposta-api)|<table><tr><td>[![Deploy](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml/badge.svg?branch=develop)](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml)</td><td>[![Deploy](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml)</td><td>[![Deploy](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml)</td></tr></table>
-|Proposta (Job) [:speech_balloon:](## "Job usado pelo GER em conjunto com a API Proposta para importação de arquivos para criação de propostas")|[Link](https://github.com/rgbtec/proposta-job)|<table><tr><td>[![Deploy](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml/badge.svg?branch=develop)](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml)</td><td>[![Deploy](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml)</td><td>[![Deploy](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml)</td></tr></table>|
+|Proposta (Api) [:speech_balloon:](## "API usada pelo GER para importação de arquivos para criação de propostas")|[Link](https://github.com/rgbtec/proposta-api)|[![Deploy](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml/badge.svg?branch=develop)](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/rgbtec/proposta-api/actions/workflows/deploy.yml)
+|Proposta (Job) [:speech_balloon:](## "Job usado pelo GER em conjunto com a API Proposta para importação de arquivos para criação de propostas")|[Link](https://github.com/rgbtec/proposta-job)|[![Deploy](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml/badge.svg?branch=develop)](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/rgbtec/proposta-job/actions/workflows/deploy.yml)|
 |Recuperar índices (Api)  [:speech_balloon:](## "Api que busca índices em api ou site de terceiros")|[Link](https://github.com/rgbtec/recuperaindices-api)|
 |Repositório SQL [:speech_balloon:](## "Scripts de atualização de objetos da base e funçães e stored procedures")|[Link](https://github.com/rgbtec/sqlrepositorio)|
 |Scr Banco Central (Api) [:speech_balloon:](## "Api que autentica o o usuário e permite a administração dos dados de clientes, usuários dos clientes e consultas a api Scr do Banco Central")|[Link](https://github.com/rgbtec/scrbancocentral-api)|
 |Scr Banco Central (Site) [:speech_balloon:](## "Site para acesso à api Scr do Banco Central")|[Link](https://github.com/rgbtec/scrbancocentral-site)|
-|WebFact [:speech_balloon:](## "Site usado pelos cedentes para gravar e consultar informaçães no GER. Foi substituido pelos Meus Recebíveis")|[Link](https://github.com/rgbtec/webfact-site)|**A pasta onde ficarão os fontes deverá se chamar WebFactNovo devido às limitações do tipo de projeto**|
+|WebFact [:speech_balloon:](## "Site usado pelos cedentes para gravar e consultar informaçães no GER. Foi substituido pelos Meus Recebíveis") [:heavy_exclamation_mark:](## "A pasta onde ficarão os fontes deverá se chamar WebFactNovo devido às limitações do tipo de projeto")|[Link](https://github.com/rgbtec/webfact-site)||
 |Whatsapp (Api) [:speech_balloon:](## "Api intermediária para envio de mensagens pelo WhatsApp para diversos provedores")|[Link](https://github.com/rgbtec/whatsappclient-api)|
 |WsNFe (Ws) [:speech_balloon:](## "Webservice de envio de nfse para prefeituras")|[Link](https://github.com/rgbtec/wsnfe-api)|
 |WsNFSe (Ws) [:speech_balloon:](## "Monitor de notas ficais")|[Link](https://github.com/rgbtec/wsnfse-api)|
 |WSQuickStatus [:speech_balloon:](## "Webservice para receber assinaturas feitas via Quicksoft")|[Link](https://github.com/rgbtec/quickstatus-api)|
+
+|Nome|Link para Repositório <br> (não usar para clonar)|Projetos da solution|
+|----|--------------------------------------------|-----|
 |RGBService|[Link](https://github.com/rgbtec/rgbservice)|<br> - API Deepia - API intermediária entre o GER e a Deepia para executar análise de crédito<br> - API Grafeno - API intermediária entre o GER e a Grafeno para envio de titulos para cobrança<br> - API Lydians - API intermediária entre o GER e a Lydians para envio de borderôs<br> - API Motor de Decisão Vadu - API usada pelo GER para enviar dados de propostas para analise de crédito na Vadu<br> - API NFE Report - API usada pelo GER para gerar um PDF da nota fiscal a partir do arquivo XML<br> - Conexão BD - Exe usado para gerar string de conexão criptografada para o GER e GER3<br> - Robo Extrator Vadu - "Programa usado para extrair dados das bases dos clientes e enviar para a Vadu, diariamente."|
 |ServicosRGB|[Link](https://github.com/rgbtec/servicosrgb)|- API Koperador - API usada pelo Koperador web e Koperador APP<br> - API Meus Recebíveis - API utilizada pelo MR App e MR Site<br> - API Monkey - API que recebe webhooks enviados pela Monkey<br> - API Notificaçães - API usada para notifcaçães dos APPs da RGB<br> - API Relat - API usada para transformar html em um arquivo PDF<br> - Autoprod - API para acesso a infoirmaçães do Autoprod<br> - Chosen - Api para retono das URLs das apis utiizadas pelos Apps<br> - ServicosRGB - Site para cadastrar informaçães de clientes para ViewsVadu e Chosen<br> - ViewVadu - Api para retorno de várias configuraçães. Em alguns clientes é substituído por um arquivo Json|
