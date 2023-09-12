@@ -48,7 +48,7 @@
 |Repositório SQL [:speech_balloon:](## "Scripts de atualização de objetos da base e funçães e stored procedures")|[Link](https://github.com/rgbtec/sqlrepositorio)|
 |Scr Banco Central (Api) [:speech_balloon:](## "Api que autentica o o usuário e permite a administração dos dados de clientes, usuários dos clientes e consultas a api Scr do Banco Central")|[Link](https://github.com/rgbtec/scrbancocentral-api)|
 |Scr Banco Central (Site) [:speech_balloon:](## "Site para acesso à api Scr do Banco Central")|[Link](https://github.com/rgbtec/scrbancocentral-site)|
-|WebFact [:speech_balloon:](## "Site usado pelos cedentes para gravar e consultar informaçães no GER. Foi substituido pelos Meus Recebíveis") [:bangbang:](## "A pasta onde ficarão os fontes deverá se chamar WebFactNovo devido às limitações do tipo de projeto")|[Link](https://github.com/rgbtec/webfact-site)||
+|WebFact [:speech_balloon:](## "Site usado pelos cedentes para gravar e consultar informaçães no GER. Foi substituido pelos Meus Recebíveis") [:bangbang:](## "A pasta onde ficarão os fontes deverá se chamar WebfactNetNovo devido às limitações do tipo de projeto")|[Link](https://github.com/rgbtec/webfact-site)||
 |Whatsapp (Api) [:speech_balloon:](## "Api intermediária para envio de mensagens pelo WhatsApp para diversos provedores")|[Link](https://github.com/rgbtec/whatsappclient-api)|
 |WsNFe (Ws) [:speech_balloon:](## "Webservice de envio de nfse para prefeituras")|[Link](https://github.com/rgbtec/wsnfe-api)|
 |WsNFSe (Ws) [:speech_balloon:](## "Monitor de notas ficais")|[Link](https://github.com/rgbtec/wsnfse-api)|
