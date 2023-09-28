@@ -12,6 +12,7 @@
 |Boleto (Api) [:speech_balloon:](## "API usada para gerar boletos de diversos bancos")|[Link](https://github.com/rgbtec/boleto-api)|
 |C RGBSYS web [:speech_balloon:](## "Testes automatizados do GER")|[Link](https://github.com/rgbtec/ger-testesautomatizados)|
 |Central de Email (Api) [:speech_balloon:](## "Api intermediária para envio de emails")|[Link](https://github.com/rgbtec/centralemail-api)|
+|Chosen (Site e Api) [:speech_balloon:](## "Site e api do chosen")|[Link](https://github.com/rgbtec/chosen)|
 |CRM [:speech_balloon:](## "API usada por sistemas de terceiros para gravar ou consultar a base do GER")|[Link](https://github.com/rgbtec/crmrgb-api)|
 |CEP (Api) [:speech_balloon:](## "Api intermediária para consulta de ceps")|[Link](https://github.com/rgbtec/cep-api)|
 |Deepia Aprovação [:speech_balloon:](## "API intermediária entre o GER e a Deepia para análise de propostas")|[Link](https://github.com/rgbtec/deepiaaprovacao-api)|
@@ -58,4 +59,11 @@
 |Nome|Repositório|Projetos da solution|
 |----|--------------------------------------------|-----|
 |RGBService|[Link](https://github.com/rgbtec/rgbservice)|<br> - API Deepia - API intermediária entre o GER e a Deepia para executar análise de crédito<br> - API Grafeno - API intermediária entre o GER e a Grafeno para envio de titulos para cobrança<br> - API Lydians - API intermediária entre o GER e a Lydians para envio de borderôs<br> - API Motor de Decisão Vadu - API usada pelo GER para enviar dados de propostas para analise de crédito na Vadu<br> - API NFE Report - API usada pelo GER para gerar um PDF da nota fiscal a partir do arquivo XML<br> - Conexão BD - Exe usado para gerar string de conexão criptografada para o GER e GER3<br> - Robo Extrator Vadu - "Programa usado para extrair dados das bases dos clientes e enviar para a Vadu, diariamente."|
-|ServicosRGB|[Link](https://github.com/rgbtec/servicosrgb)|- API Koperador - API usada pelo Koperador web e Koperador APP<br> - API Meus Recebíveis - API utilizada pelo MR App e MR Site<br> - API Monkey - API que recebe webhooks enviados pela Monkey<br> - API Notificaçães - API usada para notifcaçães dos APPs da RGB<br> - API Relat - API usada para transformar html em um arquivo PDF<br> - Autoprod - API para acesso a infoirmaçães do Autoprod<br> - Chosen - Api para retono das URLs das apis utiizadas pelos Apps<br> - ServicosRGB - Site para cadastrar informaçães de clientes para ViewsVadu e Chosen<br> - ViewVadu - Api para retorno de várias configuraçães. Em alguns clientes é substituído por um arquivo Json|
+|ServicosRGB|[Link](https://github.com/rgbtec/servicosrgb)|- API Koperador - API usada pelo Koperador web e Koperador APP<br> - API Meus Recebíveis - API utilizada pelo MR App e MR Site<br> - API Monkey - API que recebe webhooks enviados pela Monkey<br> - API Notificaçães - API usada para notifcaçães dos APPs da RGB<br> - API Relat - API usada para transformar html em um arquivo PDF<br> - Autoprod - API para acesso a infoirmaçães do Autoprod<br> - ViewVadu - Api para retorno de várias configuraçães. Em alguns clientes é substituído por um arquivo Json|
+
+|Nome|Repositório|Descrição|
+|----|--------------------------------------------|-----|
+|ServicosRGB.Shared|https://github.com/RGBSharedLibs/ServicosRGB.Shared|Biblioteca compartilhada utilizada no projeto ServicosRGB|
+|NetCore7|https://github.com/RGBSharedLibs/NetCore7|Bibliotecas compartilhadas para uso em projetos NetCore 7|
+|NetCore6|https://github.com/RGBSharedLibs/NetCore6|Bibliotecas compartilhadas para uso em projetos NetCore 6|
+|Rgb.Utils|https://github.com/RGBSharedLibs/Rgb.Utils|Biblioteca compartilhada de utilitários utilizada no projeto ServicosRGB|
