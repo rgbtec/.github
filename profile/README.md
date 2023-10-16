@@ -11,6 +11,7 @@
 |BoaVista (Site) [:speech_balloon:](## "???")|[Link](https://github.com/rgbtec/boavista-site)|
 |Boleto (Api) [:speech_balloon:](## "API usada para gerar boletos de diversos bancos")|[Link](https://github.com/rgbtec/boleto-api)|
 |C RGBSYS web [:speech_balloon:](## "Testes automatizados do GER")|[Link](https://github.com/rgbtec/ger-testesautomatizados)|
+|Capitalização (Api) [:speech_balloon:](## "API usada para a implementação dos cálculos de operações Pós")|[Link](https://github.com/rgbtec/capitalizacao-api)|
 |Central de Email (Api) [:speech_balloon:](## "Api intermediária para envio de emails")|[Link](https://github.com/rgbtec/centralemail-api)|[![Deploy](https://github.com/rgbtec/centralemail-api/actions/workflows/deploy.yml/badge.svg?branch=develop)](https://github.com/rgbtec/centralemail-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/centralemail-api/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/rgbtec/centralemail-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/centralemail-api/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/rgbtec/centralemail-api/actions/workflows/deploy.yml)|
 |Chosen (Site e Api) [:speech_balloon:](## "Site e api do chosen")|[Link](https://github.com/rgbtec/chosen)|
 |CRM [:speech_balloon:](## "API usada por sistemas de terceiros para gravar ou consultar a base do GER")|[Link](https://github.com/rgbtec/crmrgb-api)|
