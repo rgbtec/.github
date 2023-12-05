@@ -65,6 +65,7 @@
 |Nome|Repositório|Descrição|
 |----|--------------------------------------------|-----|
 |ServicosRGB.Shared|https://github.com/RGBSharedLibs/ServicosRGB.Shared|Biblioteca compartilhada utilizada no projeto ServicosRGB|
+|NetCore8|https://github.com/rgbtec/shared-netcore8|Bibliotecas compartilhadas para uso em projetos NetCore 8|
 |NetCore7|https://github.com/rgbtec/shared-netcore7|Bibliotecas compartilhadas para uso em projetos NetCore 7|
 |NetCore6|https://github.com/RGBSharedLibs/NetCore6|Bibliotecas compartilhadas para uso em projetos NetCore 6|
 |Rgb.Utils|https://github.com/RGBSharedLibs/Rgb.Utils|Biblioteca compartilhada de utilitários utilizada no projeto ServicosRGB|
