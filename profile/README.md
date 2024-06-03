@@ -6,6 +6,7 @@
 
 |Nome|Repositório|CI/CD Dev|CI/CD Hml|CI/CD Prd|
 |----|---------------------|---|---|---|
+|Home [:speech_balloon:](## "Esta página que está sendo visualizada")|[Link](https://github.com/rgbtec/.github)|
 |Autenticação 2 Fatores (Api) [:speech_balloon:](## "Api intermediária para autenticação em 2 fatores")|[Link](https://github.com/rgbtec/autenticacaodoisfatores-api)|
 |Autoprod [:speech_balloon:](## "Site Autoprod")|[Link](https://github.com/rgbtec/autoprod-site)|
 |BoaVista (Site) [:speech_balloon:](## "???")|[Link](https://github.com/rgbtec/boavista-site)|
