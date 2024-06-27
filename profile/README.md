@@ -25,7 +25,7 @@
 |FlooxUS (Api) [:speech_balloon:](## "Api do sistema Flooxusa")|[Link](https://github.com/rgbtec/flooxus-api)|
 |FlooxUS (Site) [:speech_balloon:](## "Site que permite o sacado acessar informaçães no sistema")|[Link](https://github.com/rgbtec/flooxus-site)|
 |Ger (Site) [:speech_balloon:](## "Sistema para gerenciamento de recebíveis")|[Link](https://github.com/rgbtec/ger-site)|
-|Ger2025 Gerencial (Api) [:speech_balloon:](## "Api gerencial do Ger2025")|[Link](https://github.com/rgbtec/ger2025-gerencial-api)|[![Deploy](https://github.com/rgbtec/ger2025-gerencial-api/actions/workflows/deploy.yml/badge.svg?branch=develop)]
+|Ger2025 Gerencial (Api) [:speech_balloon:](## "Api gerencial do Ger2025")|[Link](https://github.com/rgbtec/ger2025-gerencial-api)|[![Deploy](https://github.com/rgbtec/ger2025-gerencial-api/actions/workflows/deploy.yml/badge.svg?branch=develop)](https://github.com/rgbtec/ger2025-gerencial-api/actions/workflows/deploy.yml)|
 |Ger3 (Site) [:speech_balloon:](## "Sistema complementar do GER")|[Link](https://github.com/rgbtec/ger3-site)|
 |Grafeno (Api) [:speech_balloon:](## "Lib usada por projetos que acessam a Grafeno")|[Link](https://github.com/rgbtec/grafenocliente-api)|
 |Hemera (Api) [:speech_balloon:](## "Api para envio de remessas")|[Link](https://github.com/rgbtec/hemera-api)|
