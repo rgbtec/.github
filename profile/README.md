@@ -4,7 +4,7 @@
 
 **Lista dos repositórios** 
 
-|Nome|Repositório|CI/CD Dev|CI/CD Hml|CI/CD Prd|
+|Nome<img width=400/>|Repositório|CI/CD Dev|CI/CD Hml|CI/CD Prd|
 |----|---------------------|---|---|---|
 |Home [:speech_balloon:](## "Esta página que está sendo visualizada")|[Link](https://github.com/rgbtec/.github)|
 |Autenticação 2 Fatores (Api) [:speech_balloon:](## "Api intermediária para autenticação em 2 fatores")|[Link](https://github.com/rgbtec/autenticacaodoisfatores-api)|
@@ -25,7 +25,6 @@
 |FlooxUS (Api) [:speech_balloon:](## "Api do sistema Flooxusa")|[Link](https://github.com/rgbtec/flooxus-api)|
 |FlooxUS (Site) [:speech_balloon:](## "Site que permite o sacado acessar informaçães no sistema")|[Link](https://github.com/rgbtec/flooxus-site)|
 |Ger (Site) [:speech_balloon:](## "Sistema para gerenciamento de recebíveis")|[Link](https://github.com/rgbtec/ger-site)|
-|Ger2025 Gerencial (Api) [:speech_balloon:](## "Api gerencial do Ger2025")|[Link](https://github.com/rgbtec/ger2025-gerencial-api)|[![Deploy](https://github.com/rgbtec/ger2025-gerencial-api/actions/workflows/deploy.yml/badge.svg?branch=develop)](https://github.com/rgbtec/ger2025-gerencial-api/actions/workflows/deploy.yml)|
 |Ger3 (Site) [:speech_balloon:](## "Sistema complementar do GER")|[Link](https://github.com/rgbtec/ger3-site)|
 |Grafeno (Api) [:speech_balloon:](## "Lib usada por projetos que acessam a Grafeno")|[Link](https://github.com/rgbtec/grafenocliente-api)|
 |Hemera (Api) [:speech_balloon:](## "Api para envio de remessas")|[Link](https://github.com/rgbtec/hemera-api)|
@@ -60,10 +59,27 @@
 |WsNFSe (Ws) [:speech_balloon:](## "Monitor de notas ficais")|[Link](https://github.com/rgbtec/wsnfse-api)|
 |WSQuickStatus [:speech_balloon:](## "Webservice para receber assinaturas feitas via Quicksoft")|[Link](https://github.com/rgbtec/quickstatus-api)|
 
+## GER 2025
+
+|Nome<img width=400/>|Repositório|CI/CD Dev|CI/CD Hml|CI/CD Prd|
+|----|---------------------|---|---|---|
+|Acesso Api [:speech_balloon:](## "Api responsável pela autenticação e criação de usuários")|[Link](https://github.com/rgbtec/ger2025-acesso-api)|||
+|SharedLib [:speech_balloon:](## "Biblioteca NuGet utilizada em todas as apis com funcionalidades comuns ao sistema")|[Link](https://github.com/rgbtec/ger2025-shared-api)|||
+|Empresa Api||||
+|Cedente Api||||
+|Gateway Api [:speech_balloon:](## "Api que expõe em um endereço único todas as apis do sistema")|[Link](https://github.com/rgbtec/ger2025-gateway-api)||||
+|Gerencial Api [:speech_balloon:](## "Api resonsável pelos CRUDs da funcionalidades gerenciais")|[Link](https://github.com/rgbtec/ger2025-gerencial-api)|[![Deploy](https://github.com/rgbtec/ger2025-gerencial-api/actions/workflows/deploy.yml/badge.svg?branch=develop)](https://github.com/rgbtec/ger2025-gerencial-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/ger2025-gerencial-api/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/rgbtec/ger2025-gerencial-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/ger2025-gerencial-api/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/rgbtec/ger2025-gerencial-api/actions/workflows/deploy.yml)|
+|Pessoa Api [:speech_balloon:](## "Api interna, responsável pela manipulação das entidades Pessoa")|[Link](https://github.com/rgbtec/ger2025-pessoa-api)|[![Deploy](https://github.com/rgbtec/ger2025-pessoa-api/actions/workflows/deploy.yml/badge.svg?branch=develop)](https://github.com/rgbtec/ger2025-pessoa-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/ger2025-pessoa-api/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/rgbtec/ger2025-pessoa-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/ger2025-pessoa-api/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/rgbtec/ger2025-pessoa-api/actions/workflows/deploy.yml)|
+|Sacado Api||||
+
+## RGBService e ServicosRGB
+
 |Nome|Repositório|Projetos da solution|
 |----|--------------------------------------------|-----|
 |RGBService|[Link](https://github.com/rgbtec/rgbservice)|<br> - API Deepia - API intermediária entre o GER e a Deepia para executar análise de crédito<br> - API Grafeno - API intermediária entre o GER e a Grafeno para envio de titulos para cobrança<br> - API Lydians - API intermediária entre o GER e a Lydians para envio de borderôs<br> - API Motor de Decisão Vadu - API usada pelo GER para enviar dados de propostas para analise de crédito na Vadu<br> - API NFE Report - API usada pelo GER para gerar um PDF da nota fiscal a partir do arquivo XML<br> - Conexão BD - Exe usado para gerar string de conexão criptografada para o GER e GER3<br> - Robo Extrator Vadu - "Programa usado para extrair dados das bases dos clientes e enviar para a Vadu, diariamente."|
 |ServicosRGB|[Link](https://github.com/rgbtec/servicosrgb)|- API Koperador - API usada pelo Koperador web e Koperador APP<br> - API Meus Recebíveis - API utilizada pelo MR App e MR Site<br> - API Monkey - API que recebe webhooks enviados pela Monkey<br> - API Notificaçães - API usada para notifcaçães dos APPs da RGB<br> - API Relat - API usada para transformar html em um arquivo PDF<br> - Autoprod - API para acesso a infoirmaçães do Autoprod<br> - ViewVadu - Api para retorno de várias configuraçães. Em alguns clientes é substituído por um arquivo Json|
+
+## Bibliotecas compartilhadas
 
 |Nome|Repositório|Descrição|
 |----|--------------------------------------------|-----|
