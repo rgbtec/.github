@@ -63,7 +63,7 @@
 
 |Nome<img width=400/>|Repositório|CI/CD Dev|CI/CD Hml|CI/CD Prd|
 |----|---------------------|---|---|---|
-|Acesso Api [:speech_balloon:](## "Api responsável pela autenticação e criação de usuários")|[Link](https://github.com/rgbtec/ger2025-acesso-api)|||
+|Acesso Api [:speech_balloon:](## "Api responsável pela autenticação e criação de usuários")|[Link](https://github.com/rgbtec/ger2025-acesso-api)|[![Deploy](https://github.com/rgbtec/ger2025-acesso-api/actions/workflows/deploy.yml/badge.svg?branch=develop)](https://github.com/rgbtec/ger2025-acesso-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/ger2025-acesso-api/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/rgbtec/ger2025-acesso-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/ger2025-acesso-api/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/rgbtec/ger2025-acesso-api/actions/workflows/deploy.yml)|
 |SharedLib [:speech_balloon:](## "Biblioteca NuGet utilizada em todas as apis com funcionalidades comuns ao sistema")|[Link](https://github.com/rgbtec/ger2025-shared-api)|||
 |Empresa Api||||
 |Cedente Api||||
