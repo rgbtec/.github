@@ -26,7 +26,7 @@
 |FlooxUS (Site) [:speech_balloon:](## "Site que permite o sacado acessar informaçães no sistema")|[Link](https://github.com/rgbtec/flooxus-site)|
 |Ger (Site) [:speech_balloon:](## "Sistema para gerenciamento de recebíveis")|[Link](https://github.com/rgbtec/ger-site)|
 |Ger3 (Site) [:speech_balloon:](## "Sistema complementar do GER")|[Link](https://github.com/rgbtec/ger3-site)|
-|Grafeno (Api) [:speech_balloon:](## "Lib usada por projetos que acessam a Grafeno")|[Link](https://github.com/rgbtec/grafenocliente-api)|
+|Grafeno (Api) [:speech_balloon:](## "Lib usada por projetos que acessam a Grafeno")|[Link](https://github.com/rgbtec/grafenocliente-api)|||| <div align="center">Projeto</div> |
 |Hemera (Api) [:speech_balloon:](## "Api para envio de remessas")|[Link](https://github.com/rgbtec/hemera-api)|[![Deploy](https://github.com/rgbtec/hemera-api/actions/workflows/deploy.yml/badge.svg?branch=develop)](https://github.com/rgbtec/hemera-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/hemera-api/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/rgbtec/hemera-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/hemera-api/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/rgbtec/hemera-api/actions/workflows/deploy.yml)| <div align="center">Centralizada</div> |
 |Koperar Documentação [:speech_balloon:](## "Documentação do sistema Koperar")|[Link](https://github.com/rgbtec/koperar-docs)|||| <div align="center">HOLD</div> |
 |Koperar GER (Api) [:speech_balloon:](## "API usada pelo Site Koperar")|[Link](https://github.com/rgbtec/koperarger-api)|||| <div align="center">HOLD</div> |
