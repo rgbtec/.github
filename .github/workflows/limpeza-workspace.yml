@@ -22,9 +22,6 @@ jobs:
         echo "Iniciando limpeza do workspace"
         echo "Diretório a ser limpo: ${{ inputs.diretorio }}"
         
-        # Aguardar um pouco para garantir que os processos do workflow anterior tenham sido encerrados
-        Start-Sleep -Seconds 30
-        
         $diretorio = "${{ inputs.diretorio }}"
         
         # Verificar se o diretório existe
@@ -37,32 +34,29 @@ jobs:
         Set-Location -Path $diretorio
         Write-Host "Diretório atual: $(Get-Location)"
 
-        # Limpar apenas os arquivos do projeto atual usando git, se .git existir
-        if (Test-Path .git) {
-            Write-Host "Executando limpeza git"
-            git reset --hard
-            git clean -fdx
-        } else {
-            Write-Host "Diretório .git não encontrado. Pulando comandos git."
-        }
-        
-        # Limpar o diretório
-        try {
-            Write-Host "Removendo o conteúdo do diretório: $diretorio"
-            Remove-Item -Path "$diretorio\*" -Recurse -Force -ErrorAction Stop
-            Write-Host "Conteúdo do diretório removido com sucesso"
-        }
-        catch {
-            Write-Host "Erro ao remover o conteúdo do diretório: $_"
+        # Configurar o diretório como seguro (similar ao que o checkout faz)
+        git config --global --add safe.directory $diretorio
+
+        # Obter a URL do repositório remoto
+        $remoteUrl = git config --local --get remote.origin.url
+        Write-Host "URL do repositório remoto: $remoteUrl"
+
+        # Limpar o repositório
+        Write-Host "Limpando o repositório"
+        git clean -ffdx
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host "Erro ao executar git clean"
             exit 1
         }
-
-        # Verificar se o diretório está vazio
-        $conteudoRestante = Get-ChildItem -Path $diretorio -Force
-        if ($conteudoRestante) {
-            Write-Host "Aviso: Alguns itens não puderam ser removidos:"
-            $conteudoRestante | ForEach-Object { Write-Host $_.FullName }
-        } else {
-            Write-Host "O diretório está completamente vazio"
+        
+        git reset --hard HEAD
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host "Erro ao executar git reset"
+            exit 1
         }
+        
+        # Desabilitar coleta de lixo automática
+        git config --local gc.auto 0
+
+        Write-Host "Limpeza do workspace concluída"
       shell: pwsh
