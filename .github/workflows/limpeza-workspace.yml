@@ -19,7 +19,7 @@ jobs:
     - name: Limpeza Workspace
       id: limpeza_workspace
       run: |
-        echo "Iniciando limpeza do workspace"
+        echo "Iniciando limpeza do workspace novo"
         echo "Diretório a ser limpo: ${{ inputs.diretorio }}"
         
         # Aguardar um pouco para garantir que os processos do workflow anterior tenham sido encerrados
