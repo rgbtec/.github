@@ -22,41 +22,56 @@ jobs:
         echo "Iniciando limpeza do workspace"
         echo "Diretório a ser limpo: ${{ inputs.diretorio }}"
         
-        $diretorio = "${{ inputs.diretorio }}"
+        # Aguardar um pouco para garantir que os processos do workflow anterior tenham sido encerrados
+        Start-Sleep -Seconds 10
         
-        # Verificar se o diretório existe
-        if (-not (Test-Path $diretorio)) {
-            Write-Host "O diretório do workspace não existe: $diretorio"
-            exit 0
+        # Tentar remover o diretório várias vezes
+        $maxAttempts = 5
+        $attempt = 1
+        $success = $false
+
+        while (-not $success -and $attempt -le $maxAttempts) {
+          try {
+            if (Test-Path ${{ inputs.diretorio }}) {
+              Remove-Item -Recurse -Force ${{ inputs.diretorio }} -ErrorAction Stop
+              $success = $true
+              echo "Limpeza concluída com sucesso na tentativa $attempt"
+            } else {
+              echo "O diretório ${{ inputs.diretorio }} não existe. Nada para limpar."
+              $success = $true
+            }
+          }
+          catch {
+            echo "Tentativa $attempt falhou. Erro: $_"
+            $attempt++
+            if ($attempt -le $maxAttempts) {
+              echo "Aguardando 10 segundos antes da próxima tentativa..."
+              Start-Sleep -Seconds 10
+            }
+          }
         }
 
-        # Navegar para o diretório do workspace
-        Set-Location -Path $diretorio
-        Write-Host "Diretório atual: $(Get-Location)"
-
-        # Configurar o diretório como seguro (similar ao que o checkout faz)
-        git config --global --add safe.directory $diretorio
-
-        # Obter a URL do repositório remoto
-        $remoteUrl = git config --local --get remote.origin.url
-        Write-Host "URL do repositório remoto: $remoteUrl"
-
-        # Limpar o repositório
-        Write-Host "Limpando o repositório"
-        git clean -ffdx
-        if ($LASTEXITCODE -ne 0) {
-            Write-Host "Erro ao executar git clean"
-            exit 1
+        if (-not $success) {
+          echo "Falha ao limpar o diretório após $maxAttempts tentativas"
+          exit 1
         }
-        
-        git reset --hard HEAD
-        if ($LASTEXITCODE -ne 0) {
-            Write-Host "Erro ao executar git reset"
-            exit 1
-        }
-        
-        # Desabilitar coleta de lixo automática
-        git config --local gc.auto 0
 
-        Write-Host "Limpeza do workspace concluída"
-      shell: pwsh
+    - name: Notificação de Sucesso
+      if: success()
+      uses: jdcargile/ms-teams-notification@v1.4
+      with:
+        github-token: ${{ github.token }}
+        ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+        notification-summary: A limpeza do workspace para o branch ${{ github.ref_name }} do repositório ${{ github.repository }} foi concluída com sucesso
+        notification-color: 00FF00
+        timezone: America/Sao_Paulo
+
+    - name: Notificação de Erro
+      if: failure()
+      uses: jdcargile/ms-teams-notification@v1.4
+      with:
+        github-token: ${{ github.token }}
+        ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+        notification-summary: Ocorreu um erro durante a limpeza do workspace para o branch ${{ github.ref_name }} do repositório ${{ github.repository }}
+        notification-color: FF0000
+        timezone: America/Sao_Paulo
