@@ -19,7 +19,7 @@ jobs:
     - name: Limpeza Workspace
       id: limpeza_workspace
       run: |
-        echo "Iniciando limpeza do workspace novo"
+        echo "Iniciando limpeza do workspace"
         echo "Diretório a ser limpo: ${{ inputs.diretorio }}"
         
         # Aguardar um pouco para garantir que os processos do workflow anterior tenham sido encerrados
@@ -40,41 +40,29 @@ jobs:
         # Limpar apenas os arquivos do projeto atual usando git, se .git existir
         if (Test-Path .git) {
             Write-Host "Executando limpeza git"
+            git reset --hard
             git clean -fdx
         } else {
             Write-Host "Diretório .git não encontrado. Pulando comandos git."
         }
         
-        # Continuar com a limpeza detalhada
-        if (Test-Path $diretorio) {
-          $arquivos = Get-ChildItem -Path $diretorio -Recurse
-          $totalArquivos = $arquivos.Count
-          $arquivosExcluidos = 0
-          $arquivosComErro = @()
-
-          foreach ($arquivo in $arquivos) {
-            try {
-              Remove-Item -Path $arquivo.FullName -Force -ErrorAction Stop
-              $arquivosExcluidos++
-              Write-Host "Arquivo excluído com sucesso: $($arquivo.FullName)"
-            }
-            catch {
-              $arquivosComErro += $arquivo.FullName
-              Write-Host "Erro ao excluir arquivo: $($arquivo.FullName). Erro: $_"
-            }
-          }
-
-          Write-Host "Total de arquivos: $totalArquivos"
-          Write-Host "Arquivos excluídos com sucesso: $arquivosExcluidos"
-          Write-Host "Arquivos com erro de exclusão: $($arquivosComErro.Count)"
-
-          if ($arquivosComErro.Count -gt 0) {
-            Write-Host "Lista de arquivos que não puderam ser excluídos:"
-            $arquivosComErro | ForEach-Object { Write-Host $_ }
-            exit 1
-          }
+        # Limpar o diretório
+        try {
+            Write-Host "Removendo o conteúdo do diretório: $diretorio"
+            Remove-Item -Path "$diretorio\*" -Recurse -Force -ErrorAction Stop
+            Write-Host "Conteúdo do diretório removido com sucesso"
         }
-        else {
-          Write-Host "O diretório $diretorio não existe. Nada para limpar."
+        catch {
+            Write-Host "Erro ao remover o conteúdo do diretório: $_"
+            exit 1
+        }
+
+        # Verificar se o diretório está vazio
+        $conteudoRestante = Get-ChildItem -Path $diretorio -Force
+        if ($conteudoRestante) {
+            Write-Host "Aviso: Alguns itens não puderam ser removidos:"
+            $conteudoRestante | ForEach-Object { Write-Host $_.FullName }
+        } else {
+            Write-Host "O diretório está completamente vazio"
         }
       shell: pwsh
