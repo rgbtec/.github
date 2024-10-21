@@ -25,53 +25,36 @@ jobs:
         # Aguardar um pouco para garantir que os processos do workflow anterior tenham sido encerrados
         Start-Sleep -Seconds 30
         
-        # Tentar remover o diretório várias vezes
-        $maxAttempts = 5
-        $attempt = 1
-        $success = $false
+        $diretorio = "${{ inputs.diretorio }}"
+        
+        if (Test-Path $diretorio) {
+          $arquivos = Get-ChildItem -Path $diretorio -Recurse
+          $totalArquivos = $arquivos.Count
+          $arquivosExcluidos = 0
+          $arquivosComErro = @()
 
-        while (-not $success -and $attempt -le $maxAttempts) {
-          try {
-            if (Test-Path ${{ inputs.diretorio }}) {
-              Remove-Item -Recurse -Force ${{ inputs.diretorio }} -ErrorAction Stop
-              $success = $true
-              echo "Limpeza concluída com sucesso na tentativa $attempt"
-            } else {
-              echo "O diretório ${{ inputs.diretorio }} não existe. Nada para limpar."
-              $success = $true
+          foreach ($arquivo in $arquivos) {
+            try {
+              Remove-Item -Path $arquivo.FullName -Force -ErrorAction Stop
+              $arquivosExcluidos++
+              Write-Host "Arquivo excluído com sucesso: $($arquivo.FullName)"
+            }
+            catch {
+              $arquivosComErro += $arquivo.FullName
+              Write-Host "Erro ao excluir arquivo: $($arquivo.FullName). Erro: $_"
             }
           }
-          catch {
-            echo "Tentativa $attempt falhou. Erro: $_"
-            $attempt++
-            if ($attempt -le $maxAttempts) {
-              echo "Aguardando 30 segundos antes da próxima tentativa..."
-              Start-Sleep -Seconds 30
-            }
+
+          Write-Host "Total de arquivos: $totalArquivos"
+          Write-Host "Arquivos excluídos com sucesso: $arquivosExcluidos"
+          Write-Host "Arquivos com erro de exclusão: $($arquivosComErro.Count)"
+
+          if ($arquivosComErro.Count -gt 0) {
+            Write-Host "Lista de arquivos que não puderam ser excluídos:"
+            $arquivosComErro | ForEach-Object { Write-Host $_ }
+            exit 1
           }
         }
-
-        if (-not $success) {
-          echo "Falha ao limpar o diretório após $maxAttempts tentativas"
-          exit 1
+        else {
+          Write-Host "O diretório $diretorio não existe. Nada para limpar."
         }
-
-    - name: Notificação de Sucesso
-      if: success()
-      uses: jdcargile/ms-teams-notification@v1.4
-      with:
-        github-token: ${{ github.token }}
-        ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-        notification-summary: A limpeza do workspace para o branch ${{ github.ref_name }} do repositório ${{ github.repository }} foi concluída com sucesso
-        notification-color: 00FF00
-        timezone: America/Sao_Paulo
-
-    - name: Notificação de Erro
-      if: failure()
-      uses: jdcargile/ms-teams-notification@v1.4
-      with:
-        github-token: ${{ github.token }}
-        ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-        notification-summary: Ocorreu um erro durante a limpeza do workspace para o branch ${{ github.ref_name }} do repositório ${{ github.repository }}
-        notification-color: FF0000
-        timezone: America/Sao_Paulo
