@@ -19,7 +19,7 @@ jobs:
     - name: Limpeza Workspace
       id: limpeza_workspace
       run: |
-        echo "Iniciando limpeza do workspacee"
+        echo "Iniciando limpeza do workspace"
         echo "Diretório a ser limpo: ${{ inputs.diretorio }}"
         
         # Aguardar um pouco para garantir que os processos do workflow anterior tenham sido encerrados
@@ -27,6 +27,25 @@ jobs:
         
         $diretorio = "${{ inputs.diretorio }}"
         
+        # Verificar se o diretório existe
+        if (-not (Test-Path $diretorio)) {
+            Write-Host "O diretório do workspace não existe: $diretorio"
+            exit 0
+        }
+
+        # Navegar para o diretório do workspace
+        Set-Location -Path $diretorio
+        Write-Host "Diretório atual: $(Get-Location)"
+
+        # Limpar apenas os arquivos do projeto atual usando git, se .git existir
+        if (Test-Path .git) {
+            Write-Host "Executando limpeza git"
+            git clean -fdx
+        } else {
+            Write-Host "Diretório .git não encontrado. Pulando comandos git."
+        }
+        
+        # Continuar com a limpeza detalhada
         if (Test-Path $diretorio) {
           $arquivos = Get-ChildItem -Path $diretorio -Recurse
           $totalArquivos = $arquivos.Count
@@ -58,3 +77,4 @@ jobs:
         else {
           Write-Host "O diretório $diretorio não existe. Nada para limpar."
         }
+      shell: pwsh
