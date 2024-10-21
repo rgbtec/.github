@@ -1,0 +1,77 @@
+name: Limpeza Workspace
+
+on:
+  workflow_call:
+    inputs:
+      diretorio:
+        required: true
+        type: string
+        description: "Diretório a ser limpo"
+    secrets:
+      MS_TEAMS_WEBHOOK_URI:
+        required: true
+
+jobs:
+  limpeza_workspace:
+    runs-on: [self-hosted]
+
+    steps:
+    - name: Limpeza Workspace
+      id: limpeza_workspace
+      run: |
+        echo "Iniciando limpeza do workspace"
+        echo "Diretório a ser limpo: ${{ inputs.diretorio }}"
+        
+        # Aguardar um pouco para garantir que os processos do workflow anterior tenham sido encerrados
+        Start-Sleep -Seconds 30
+        
+        # Tentar remover o diretório várias vezes
+        $maxAttempts = 5
+        $attempt = 1
+        $success = $false
+
+        while (-not $success -and $attempt -le $maxAttempts) {
+          try {
+            if (Test-Path ${{ inputs.diretorio }}) {
+              Remove-Item -Recurse -Force ${{ inputs.diretorio }} -ErrorAction Stop
+              $success = $true
+              echo "Limpeza concluída com sucesso na tentativa $attempt"
+            } else {
+              echo "O diretório ${{ inputs.diretorio }} não existe. Nada para limpar."
+              $success = $true
+            }
+          }
+          catch {
+            echo "Tentativa $attempt falhou. Erro: $_"
+            $attempt++
+            if ($attempt -le $maxAttempts) {
+              echo "Aguardando 30 segundos antes da próxima tentativa..."
+              Start-Sleep -Seconds 30
+            }
+          }
+        }
+
+        if (-not $success) {
+          echo "Falha ao limpar o diretório após $maxAttempts tentativas"
+          exit 1
+        }
+
+    - name: Notificação de Sucesso
+      if: success()
+      uses: jdcargile/ms-teams-notification@v1.4
+      with:
+        github-token: ${{ github.token }}
+        ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+        notification-summary: A limpeza do workspace para o branch ${{ github.ref_name }} do repositório ${{ github.repository }} foi concluída com sucesso
+        notification-color: 00FF00
+        timezone: America/Sao_Paulo
+
+    - name: Notificação de Erro
+      if: failure()
+      uses: jdcargile/ms-teams-notification@v1.4
+      with:
+        github-token: ${{ github.token }}
+        ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+        notification-summary: Ocorreu um erro durante a limpeza do workspace para o branch ${{ github.ref_name }} do repositório ${{ github.repository }}
+        notification-color: FF0000
+        timezone: America/Sao_Paulo
