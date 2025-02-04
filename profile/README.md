@@ -1,6 +1,6 @@
 **Documentos**
 - Documentação : https://github.com/rgbtec/documentacao/wiki
-- Planilha dos repositórios : [Planilha](https://edsonrgbsyscom.sharepoint.com/:x:/g/ESNKvhUfGXBCsp5JftJO8uwB1VS3mznc9XyJkUdb1Aqdow?e=6wrgvy)
+- Documentação de boas práticas : [Documentação](https://github.com/rgbtec/ger2025-shared-lib)
 
 **Lista dos repositórios** 
 
