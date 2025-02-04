@@ -1,6 +1,6 @@
 **Documentos**
 - Documentação : https://github.com/rgbtec/documentacao/wiki
-- Documentação de boas práticas : [Documentação](https://github.com/rgbtec/ger2025-shared-lib)
+- Documentação de boas práticas : [Documentação](https://github.com/rgbtec/ger2025-shared-lib?tab=readme-ov-file#documenta%C3%A7%C3%A3o-de-refatora%C3%A7%C3%A3o-dos-projetos-net)
 
 **Lista dos repositórios** 
 
