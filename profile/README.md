@@ -7,6 +7,7 @@
 |Nome<img width=400/>|Repositório|CI/CD Dev|CI/CD Hml|CI/CD Prd|Instalação|
 |----|---------------------|---|---|---|:---:|
 |Home [:speech_balloon:](## "Esta página que está sendo visualizada")|[Link](https://github.com/rgbtec/.github)|
+|Atualizador de Pacotes (App) [:speech_balloon:](## "App para atualização de pacotes no Cloud RGB")|[Link](https://github.com/rgbtec/atualizacaopacotes-app)||||Projeto|
 |Autenticação 2 Fatores (Api) [:speech_balloon:](## "Api intermediária para autenticação em 2 fatores")|[Link](https://github.com/rgbtec/autenticacaodoisfatores-api)||||Centralizada|
 |Autoprod [:speech_balloon:](## "Site Autoprod")|[Link](https://github.com/rgbtec/autoprod-site)||||RGBWEB|
 |BoaVista (Site) [:speech_balloon:](## "???")|[Link](https://github.com/rgbtec/boavista-site)|
