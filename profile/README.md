@@ -19,9 +19,9 @@
 |CRM [:speech_balloon:](## "API usada por sistemas de terceiros para gravar ou consultar a base do GER")|[Link](https://github.com/rgbtec/crmrgb-api)||||Serv. Próprio e Individual|
 |CEP (Api) [:speech_balloon:](## "Api intermediária para consulta de ceps")|[Link](https://github.com/rgbtec/cep-api)|[![Deploy](https://github.com/rgbtec/cep-api/actions/workflows/deploy.yml/badge.svg?branch=develop)](https://github.com/rgbtec/cep-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/cep-api/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/rgbtec/cep-api/actions/workflows/deploy.yml)|[![Deploy](https://github.com/rgbtec/cep-api/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/rgbtec/cep-api/actions/workflows/deploy.yml)|Centralizada|
 |Deepia Aprovação [:speech_balloon:](## "API intermediária entre o GER e a Deepia para análise de propostas")|[Link](https://github.com/rgbtec/deepiaaprovacao-api)||||Serv. Próprio e Individual|
-|DocZen (Api) [:speech_balloon:](## "API usada pelo Site doczen_web")|[Link](https://github.com/rgbtec/doczen-api)||||HOLD|
-|DocZen Adm (Site) [:speech_balloon:](## "Site de documentação das APIs da RGB")|[Link](https://github.com/rgbtec/doczenadmin-site)||||HOLD|
-|DocZen (Site) [:speech_balloon:](## "Site com a documentação das apis")|[Link](https://github.com/rgbtec/doczen-site)|||![CI/CD](https://github.com/rgbtec/doczen-site/workflows/CI/CD/badge.svg)|HOLD|
+|DocZen (Api) [:speech_balloon:](## "API usada pelo Site doczen_web")|[Link](https://github.com/rgbtec/doczen-api)||||RGBWEB|
+|DocZen Adm (Site) [:speech_balloon:](## "Site de documentação das APIs da RGB")|[Link](https://github.com/rgbtec/doczenadmin-site)||||RGBWEB|
+|DocZen (Site) [:speech_balloon:](## "Site com a documentação das apis")|[Link](https://github.com/rgbtec/doczen-site)|||![CI/CD](https://github.com/rgbtec/doczen-site/workflows/CI/CD/badge.svg)|RGBWEB|
 |Esteira de Credito [:speech_balloon:](## "Rotina de análise de crédito para aprovação ou reprovação de títulos em propostas")|[Link](https://github.com/rgbtec/esteiracredito-job)||||Serv. Próprio e Individual|
 |FlooxUS (Api) [:speech_balloon:](## "Api do sistema Flooxusa")|[Link](https://github.com/rgbtec/flooxus-api)||||Projeto|
 |FlooxUS (Site) [:speech_balloon:](## "Site que permite o sacado acessar informaçães no sistema")|[Link](https://github.com/rgbtec/flooxus-site)||||Serv. Próprio e Individual|
