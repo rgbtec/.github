@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
-  "label": "versão",
+  "label": "Versão",
+  "logo": "github",
   "message": "v1.30.0",
   "color": "blue"
 }
