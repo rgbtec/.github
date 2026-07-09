@@ -37,7 +37,7 @@ on:
         type: string
 
     secrets:
-      MSTEAMS_WEBHOOK_URI:
+      MICROSOFT_TEAMS_WEBHOOK_URI:
         description: "Microsoft Teams Webhook URI"
         required: true
 
@@ -51,7 +51,7 @@ jobs:
         shell: pwsh
         run: |
 
-          $webhookUri = "${{ secrets.MSTEAMS_WEBHOOK_URI }}"
+          $webhookUri = "${{ secrets.MICROSOFT_TEAMS_WEBHOOK_URI }}"
           $status = "${{ inputs.status }}"
 
           if ($status -eq "success") {
