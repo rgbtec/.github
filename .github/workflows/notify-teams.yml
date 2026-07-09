@@ -13,8 +13,8 @@ on:
         required: true
         type: string
 
-      branch:
-        description: "Branch"
+      ambiente:
+        description: "Ambiente"
         required: true
         type: string
 
@@ -41,11 +41,6 @@ on:
       server_url:
         description: "GitHub Server URL"
         required: true
-        type: string
-
-      deploy_environment:
-        description: "Ambiente do deploy"
-        required: false
         type: string
 
     secrets:
@@ -233,16 +228,9 @@ jobs:
 
 
                             @{
-                              title = "Branch"
+                              title = "Ambiente"
 
                               value = "${{ inputs.branch }}"
-                            },
-
-
-                            @{
-                              title = "Ambiente"
-                            
-                              value = "${{ inputs.deploy_environment }}"
                             },
 
 
