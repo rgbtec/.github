@@ -304,14 +304,12 @@ jobs:
 
           } | ConvertTo-Json -Depth 50 -Compress
 
-
-
-          Invoke-WebRequest `
-
-            -Uri $webhookUri `
-
-            -Method Post `
-
-            -Body ([System.Text.Encoding]::UTF8.GetBytes($jsonPayload)) `
-
-            -ContentType "application/json; charset=utf-8"
+          $requestParams = @{
+              Uri = $webhookUri
+              Method = "Post"
+              Body = ([System.Text.Encoding]::UTF8.GetBytes($jsonPayload))
+              ContentType = "application/json; charset=utf-8"
+              ErrorAction = "Stop"
+          }
+          
+          Invoke-WebRequest @requestParams
