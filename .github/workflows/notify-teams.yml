@@ -87,30 +87,56 @@ jobs:
                       style = $style
                       items = @(
                         @{
-                          type = "TextBlock"
-                          text = "$emoji $title"
-                          weight = "bolder"
-                          size = "large"
-                          color = $color
+                          type = "ColumnSet"
+                          columns = @(
+                            @{
+                              type = "Column"
+                              width = "auto"
+                              items = @(
+                                @{
+                                  type = "Image"
+                                  url = "https://github.com/${{ inputs.actor }}.png"
+                                  size = "Medium"
+                                  style = "Person"
+                                }
+                              )
+                            },
+                            @{
+                              type = "Column"
+                              width = "stretch"
+                              items = @(
+                                @{
+                                  type = "TextBlock"
+                                  text = "$emoji $title"
+                                  weight = "bolder"
+                                  size = "large"
+                                  color = $color
+                                },
+                                @{
+                                  type = "TextBlock"
+                                  text = "Executado por ${{ inputs.actor }}"
+                                  spacing = "small"
+                                  isSubtle = $true
+                                }
+                              )
+                            }
+                          )
                         }
                       )
                     },
+                  
                     @{
                       type = "Container"
                       items = @(
                         @{
                           type = "TextBlock"
-                          text = "Detalhes da Execução"
+                          text = "📋 Detalhes da Execução"
                           weight = "bolder"
                           size = "medium"
                         },
                         @{
                           type = "FactSet"
                           facts = @(
-                            @{
-                              title = "Workflow"
-                              value = "${{ inputs.workflow }}"
-                            },
                             @{
                               title = "Repositório"
                               value = "${{ inputs.repository }}"
@@ -120,12 +146,12 @@ jobs:
                               value = "${{ inputs.branch }}"
                             },
                             @{
-                              title = "Status"
-                              value = $statusLabel
+                              title = "Workflow"
+                              value = "${{ inputs.workflow }}"
                             },
                             @{
-                              title = "Autor"
-                              value = "${{ inputs.actor }}"
+                              title = "Status"
+                              value = $statusLabel
                             },
                             @{
                               title = "Commit"
@@ -146,6 +172,11 @@ jobs:
                       type = "Action.OpenUrl"
                       title = "📝 Ver Commit"
                       url = "${{ inputs.server_url }}/${{ inputs.repository }}/commit/${{ inputs.sha }}"
+                    },
+                    @{
+                      type = "Action.OpenUrl"
+                      title = "📂 Abrir Repositório"
+                      url = "${{ inputs.server_url }}/${{ inputs.repository }}"
                     }
                   )
                 }
