@@ -1,0 +1,160 @@
+name: Notify Teams
+
+on:
+  workflow_call:
+    inputs:
+      status:
+        description: "Status da execução (success ou error)"
+        required: true
+        type: string
+      repository:
+        description: "Repositório"
+        required: true
+        type: string
+      branch:
+        description: "Branch"
+        required: true
+        type: string
+      workflow:
+        description: "Nome do Workflow"
+        required: true
+        type: string
+      actor:
+        description: "Autor"
+        required: true
+        type: string
+      sha:
+        description: "Commit SHA"
+        required: true
+        type: string
+      run_id:
+        description: "Run ID"
+        required: true
+        type: string
+      server_url:
+        description: "GitHub Server URL"
+        required: true
+        type: string
+
+    secrets:
+      MSTEAMS_WEBHOOK_URI:
+        description: "Microsoft Teams Webhook URI"
+        required: true
+
+jobs:
+  send-notification:
+    runs-on: [self-hosted]
+    name: Enviar Notificação Teams
+
+    steps:
+      - name: Enviar notificação para Teams
+        shell: pwsh
+        run: |
+
+          $webhookUri = "${{ secrets.MSTEAMS_WEBHOOK_URI }}"
+          $status = "${{ inputs.status }}"
+
+          if ($status -eq "success") {
+            $emoji = "✅"
+            $title = "Deploy executado com sucesso"
+            $style = "emphasis"
+            $color = "good"
+            $statusLabel = "Sucesso"
+          }
+          else {
+            $emoji = "❌"
+            $title = "Erro no deploy"
+            $style = "attention"
+            $color = "attention"
+            $statusLabel = "Falha"
+          }
+
+          $jsonPayload = @{
+            type = "message"
+            attachments = @(
+              @{
+                contentType = "application/vnd.microsoft.card.adaptive"
+                content = @{
+                  "`$schema" = "http://adaptivecards.io/schemas/adaptive-card.json"
+                  type = "AdaptiveCard"
+                  version = "1.4"
+                  msteams = @{
+                    width = "Full"
+                  }
+                  body = @(
+                    @{
+                      type = "Container"
+                      style = $style
+                      items = @(
+                        @{
+                          type = "TextBlock"
+                          text = "$emoji $title"
+                          weight = "bolder"
+                          size = "large"
+                          color = $color
+                        }
+                      )
+                    },
+                    @{
+                      type = "Container"
+                      items = @(
+                        @{
+                          type = "TextBlock"
+                          text = "Detalhes da Execução"
+                          weight = "bolder"
+                          size = "medium"
+                        },
+                        @{
+                          type = "FactSet"
+                          facts = @(
+                            @{
+                              title = "Workflow"
+                              value = "${{ inputs.workflow }}"
+                            },
+                            @{
+                              title = "Repositório"
+                              value = "${{ inputs.repository }}"
+                            },
+                            @{
+                              title = "Branch"
+                              value = "${{ inputs.branch }}"
+                            },
+                            @{
+                              title = "Status"
+                              value = $statusLabel
+                            },
+                            @{
+                              title = "Autor"
+                              value = "${{ inputs.actor }}"
+                            },
+                            @{
+                              title = "Commit"
+                              value = "${{ inputs.sha }}".Substring(0,7)
+                            }
+                          )
+                        }
+                      )
+                    }
+                  )
+                  actions = @(
+                    @{
+                      type = "Action.OpenUrl"
+                      title = "🚀 Ver Workflow"
+                      url = "${{ inputs.server_url }}/${{ inputs.repository }}/actions/runs/${{ inputs.run_id }}"
+                    },
+                    @{
+                      type = "Action.OpenUrl"
+                      title = "📝 Ver Commit"
+                      url = "${{ inputs.server_url }}/${{ inputs.repository }}/commit/${{ inputs.sha }}"
+                    }
+                  )
+                }
+              }
+            )
+          } | ConvertTo-Json -Depth 10 -Compress
+
+          Invoke-WebRequest `
+            -Uri $webhookUri `
+            -Method Post `
+            -Body ([System.Text.Encoding]::UTF8.GetBytes($jsonPayload)) `
+            -ContentType "application/json; charset=utf-8"
