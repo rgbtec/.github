@@ -43,11 +43,6 @@ on:
         required: true
         type: string
 
-      environment:
-        description: "Ambiente do deploy"
-        required: false
-        type: string
-
     secrets:
       MICROSOFT_TEAMS_WEBHOOK_URI:
         description: "Microsoft Teams Webhook URI"
@@ -232,13 +227,6 @@ jobs:
                               title = "Branch"
 
                               value = "${{ inputs.branch }}"
-                            },
-
-
-                            @{
-                              title = "Ambiente"
-
-                              value = "${{ inputs.environment }}"
                             },
 
 
