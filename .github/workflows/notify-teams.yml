@@ -91,7 +91,7 @@ jobs:
 
             $emoji = "❌"
             $title = "Erro no deploy"
-            $style = "emphasis"
+            $style = "light"
             $color = "attention"
             $statusLabel = "Falha"
 
