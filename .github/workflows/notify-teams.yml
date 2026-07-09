@@ -64,6 +64,11 @@ jobs:
         run: |
 
           $webhookUri = "${{ secrets.MICROSOFT_TEAMS_WEBHOOK_URI }}"
+          Write-Host "Tamanho do webhook: $($webhookUri.Length)"
+
+          if ([string]::IsNullOrWhiteSpace($webhookUri)) {
+              throw "Webhook do Teams não foi carregado."
+          }
           $status = "${{ inputs.status }}"
 
           $commit = "${{ inputs.sha }}"
@@ -147,7 +152,6 @@ jobs:
 
                                   size = "Medium"
 
-                                  style = "Person"
                                 }
 
                               )
@@ -298,7 +302,7 @@ jobs:
 
             )
 
-          } | ConvertTo-Json -Depth 10 -Compress
+          } | ConvertTo-Json -Depth 50 -Compress
 
 
 
