@@ -304,12 +304,13 @@ jobs:
 
           } | ConvertTo-Json -Depth 50 -Compress
 
-          $requestParams = @{
-              Uri = $webhookUri
-              Method = "Post"
-              Body = ([System.Text.Encoding]::UTF8.GetBytes($jsonPayload))
+                    $requestParams = @{
+              Uri         = $webhookUri
+              Method      = "Post"
+              # Força o encode em UTF8 para os acentos e emojis não quebrarem no Teams
+              Body        = [System.Text.Encoding]::UTF8.GetBytes($jsonPayload)
               ContentType = "application/json; charset=utf-8"
-              ErrorAction = "Stop"
           }
           
-          Invoke-WebRequest @requestParams
+          # Envia direto para o fluxo gratuito do Power Automate
+          Invoke-RestMethod @requestParams
