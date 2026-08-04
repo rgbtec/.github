@@ -48,21 +48,15 @@ on:
         description: "Microsoft Teams Webhook URI"
         required: true
 
-
 jobs:
   send-notification:
-
     runs-on: [self-hosted]
-
     name: Enviar Notificação Teams
 
     steps:
-
       - name: Enviar notificação para Teams
         shell: pwsh
-
         run: |
-
           $webhookUri = "${{ secrets.MICROSOFT_TEAMS_WEBHOOK_URI }}"
           Write-Host "Tamanho do webhook: $($webhookUri.Length)"
 
@@ -70,247 +64,130 @@ jobs:
               throw "Webhook do Teams não foi carregado."
           }
           $status = "${{ inputs.status }}"
-
           $commit = "${{ inputs.sha }}"
 
           if ($commit.Length -gt 7) {
               $commit = $commit.Substring(0,7)
           }
 
-
           if ($status -eq "success") {
-
             $emoji = "✅"
             $title = "Deploy executado com sucesso"
             $style = "emphasis"
             $color = "good"
             $statusLabel = "Sucesso"
-
           }
           else {
-
             $emoji = "❌"
             $title = "Erro no deploy"
             $style = "attention"
             $color = "attention"
             $statusLabel = "Falha"
-
           }
 
-
+          # Payload JSON limpo e estruturado diretamente para o novo gatilho do Teams no Power Automate
           $jsonPayload = @{
-
-            type = "message"
-
-            attachments = @(
-
-              @{
-
-                contentType = "application/vnd.microsoft.card.adaptive"
-
-                content = @{
-
-                  "`$schema" = "http://adaptivecards.io/schemas/adaptive-card.json"
-
-                  type = "AdaptiveCard"
-
-                  version = "1.4"
-
-
-                  msteams = @{
-                    width = "Full"
+              type        = "message"
+              attachments = @(
+                  @{
+                      contentType = "application/vnd.microsoft.card.adaptive"
+                      content     = @{
+                          "`$schema" = "http://adaptivecards.io/schemas/adaptive-card.json"
+                          type       = "AdaptiveCard"
+                          version    = "1.4"
+                          msteams    = @{ width = "Full" }
+                          body       = @(
+                              @{
+                                  type  = "Container"
+                                  style = $style
+                                  items = @(
+                                      @{
+                                          type    = "ColumnSet"
+                                          columns = @(
+                                              @{
+                                                  type  = "Column"
+                                                  width = "auto"
+                                                  items = @(
+                                                      @{
+                                                          type = "Image"
+                                                          url  = "https://github.com/${{ inputs.actor }}.png?size=128"
+                                                          size = "Medium"
+                                                      }
+                                                  )
+                                              },
+                                              @{
+                                                  type  = "Column"
+                                                  width = "stretch"
+                                                  items = @(
+                                                      @{
+                                                          type   = "TextBlock"
+                                                          text   = "$emoji $title"
+                                                          weight = "bolder"
+                                                          size   = "large"
+                                                          color  = $color
+                                                      },
+                                                      @{
+                                                          type     = "TextBlock"
+                                                          text     = "👤 ${{ inputs.actor }}"
+                                                          spacing  = "small"
+                                                          isSubtle = $true
+                                                      }
+                                                  )
+                                              }
+                                          )
+                                      }
+                                  )
+                              },
+                              @{
+                                  type  = "Container"
+                                  items = @(
+                                      @{
+                                          type   = "TextBlock"
+                                          text   = "📋 Detalhes da Execução"
+                                          weight = "bolder"
+                                          size   = "medium"
+                                      },
+                                      @{
+                                          type  = "FactSet"
+                                          facts = @(
+                                              @{ title = "Repositório"; value = "${{ inputs.repository }}" },
+                                              @{ title = "Ambiente"; value = "${{ inputs.ambiente }}" },
+                                              @{ title = "Workflow"; value = "${{ inputs.workflow }}" },
+                                              @{ title = "Status"; value = $statusLabel },
+                                              @{ title = "Commit"; value = $commit }
+                                          )
+                                      }
+                                  )
+                              }
+                          )
+                          actions    = @(
+                              @{
+                                  type  = "Action.OpenUrl"
+                                  title = "🚀 Ver Workflow"
+                                  url   = "${{ inputs.server_url }}/${{ inputs.repository }}/actions/runs/${{ inputs.run_id }}"
+                              },
+                              @{
+                                  type  = "Action.OpenUrl"
+                                  title = "📝 Ver Commit"
+                                  url   = "${{ inputs.server_url }}/${{ inputs.repository }}/commit/${{ inputs.sha }}"
+                              },
+                              @{
+                                  type  = "Action.OpenUrl"
+                                  title = "📂 Abrir Repositório"
+                                  url   = "${{ inputs.server_url }}/${{ inputs.repository }}"
+                              }
+                          )
+                      }
                   }
-
-
-                  body = @(
-
-
-                    @{
-                      type = "Container"
-
-                      style = $style
-
-                      items = @(
-
-                        @{
-                          type = "ColumnSet"
-
-                          columns = @(
-
-
-                            @{
-                              type = "Column"
-
-                              width = "auto"
-
-                              items = @(
-
-                                @{
-                                  type = "Image"
-
-                                  url = "https://github.com/${{ inputs.actor }}.png?size=128"
-
-                                  size = "Medium"
-
-                                }
-
-                              )
-                            },
-
-
-                            @{
-                              type = "Column"
-
-                              width = "stretch"
-
-                              items = @(
-
-                                @{
-                                  type = "TextBlock"
-
-                                  text = "$emoji $title"
-
-                                  weight = "bolder"
-
-                                  size = "large"
-
-                                  color = $color
-                                },
-
-
-                                @{
-                                  type = "TextBlock"
-
-                                  text = "👤 ${{ inputs.actor }}"
-
-                                  spacing = "small"
-
-                                  isSubtle = $true
-                                }
-
-                              )
-                            }
-
-                          )
-                        }
-
-                      )
-                    },
-
-
-                    @{
-                      type = "Container"
-
-                      items = @(
-
-                        @{
-                          type = "TextBlock"
-
-                          text = "📋 Detalhes da Execução"
-
-                          weight = "bolder"
-
-                          size = "medium"
-                        },
-
-
-                        @{
-                          type = "FactSet"
-
-                          facts = @(
-
-
-                            @{
-                              title = "Repositório"
-
-                              value = "${{ inputs.repository }}"
-                            },
-
-
-                            @{
-                              title = "Ambiente"
-
-                              value = "${{ inputs.ambiente }}"
-                            },
-
-
-                            @{
-                              title = "Workflow"
-
-                              value = "${{ inputs.workflow }}"
-                            },
-
-
-                            @{
-                              title = "Status"
-
-                              value = $statusLabel
-                            },
-
-
-                            @{
-                              title = "Commit"
-
-                              value = $commit
-                            }
-
-                          )
-
-                        }
-
-                      )
-
-                    }
-
-                  )
-
-
-                  actions = @(
-
-
-                    @{
-                      type = "Action.OpenUrl"
-
-                      title = "🚀 Ver Workflow"
-
-                      url = "${{ inputs.server_url }}/${{ inputs.repository }}/actions/runs/${{ inputs.run_id }}"
-                    },
-
-
-                    @{
-                      type = "Action.OpenUrl"
-
-                      title = "📝 Ver Commit"
-
-                      url = "${{ inputs.server_url }}/${{ inputs.repository }}/commit/${{ inputs.sha }}"
-                    },
-
-
-                    @{
-                      type = "Action.OpenUrl"
-
-                      title = "📂 Abrir Repositório"
-
-                      url = "${{ inputs.server_url }}/${{ inputs.repository }}"
-                    }
-
-                  )
-
-                }
-
-              }
-
-            )
-
+              )
           } | ConvertTo-Json -Depth 50 -Compress
 
-                    $requestParams = @{
+          $requestParams = @{
               Uri         = $webhookUri
               Method      = "Post"
-              # Força o encode em UTF8 para os acentos e emojis não quebrarem no Teams
               Body        = [System.Text.Encoding]::UTF8.GetBytes($jsonPayload)
               ContentType = "application/json; charset=utf-8"
           }
           
-          # Envia direto para o fluxo gratuito do Power Automate
+          # Dispara a requisição para o fluxo gratuito do Power Automate
           Invoke-RestMethod @requestParams
