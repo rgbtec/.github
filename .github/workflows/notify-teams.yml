@@ -114,8 +114,7 @@ jobs:
                                                   items = @(
                                                       @{
                                                           type  = "Image"
-                                                          # Substitua a URL abaixo pelo caminho real onde a imagem está
-                                                          url   = "https://SEU_DOMINIO_OU_GITHUB_AQUI/xquicksoft-lockup-horizontal-positivo-rgb.webp.pagespeed.ic.j7bcK1OE9z.webp"
+                                                          url   = "https://www.quicksoft.com.br/wp-content/uploads/2024/10/xquicksoft-lockup-horizontal-positivo-rgb.webp.pagespeed.ic.j7bcK1OE9z.webp"
                                                           width = "130px"
                                                       }
                                                   )
