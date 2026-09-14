@@ -70,22 +70,23 @@ jobs:
               $commit = $commit.Substring(0,7)
           }
 
+          # Paleta de Cores & Elementos Quicksoft Tech
           if ($status -eq "success") {
-            $emoji = "✅"
-            $title = "Deploy executado com sucesso"
-            $style = "emphasis"
-            $color = "good"
+            $badgeEmoji = "🟢"
+            $titleText = "Deploy concluído com sucesso"
             $statusLabel = "Sucesso"
+            $headerColor = "Good" # Verde no Adaptive Card
+            $accentHex = "#00E676"
           }
           else {
-            $emoji = "❌"
-            $title = "Erro no deploy"
-            $style = "attention"
-            $color = "attention"
+            $badgeEmoji = "🔴"
+            $titleText = "Falha na execução do Deploy"
             $statusLabel = "Falha"
+            $headerColor = "Attention" # Vermelho no Adaptive Card
+            $accentHex = "#FF5252"
           }
 
-          # Payload JSON limpo e estruturado diretamente para o novo gatilho do Teams no Power Automate
+          # Payload Adaptive Card v1.4 moderno e alinhado ao padrão Quicksoft
           $jsonPayload = @{
               type        = "message"
               attachments = @(
@@ -97,13 +98,35 @@ jobs:
                           version    = "1.4"
                           msteams    = @{ width = "Full" }
                           body       = @(
+                              # Topo - Branding / Header
                               @{
                                   type  = "Container"
-                                  style = $style
+                                  style = "emphasis"
+                                  bleed = $true
                                   items = @(
                                       @{
                                           type    = "ColumnSet"
                                           columns = @(
+                                              @{
+                                                  type  = "Column"
+                                                  width = "stretch"
+                                                  items = @(
+                                                      @{
+                                                          type     = "TextBlock"
+                                                          text     = "QUICKSOFT • CI/CD PIPELINE"
+                                                          size     = "Small"
+                                                          weight   = "Bolder"
+                                                          isSubtle = $true
+                                                      },
+                                                      @{
+                                                          type   = "TextBlock"
+                                                          text   = "$badgeEmoji $titleText"
+                                                          size   = "Large"
+                                                          weight = "Bolder"
+                                                          color  = $headerColor
+                                                      }
+                                                  )
+                                              },
                                               @{
                                                   type  = "Column"
                                                   width = "auto"
@@ -111,26 +134,8 @@ jobs:
                                                       @{
                                                           type = "Image"
                                                           url  = "https://github.com/${{ inputs.actor }}.png?size=128"
-                                                          size = "Medium"
-                                                      }
-                                                  )
-                                              },
-                                              @{
-                                                  type  = "Column"
-                                                  width = "stretch"
-                                                  items = @(
-                                                      @{
-                                                          type   = "TextBlock"
-                                                          text   = "$emoji $title"
-                                                          weight = "bolder"
-                                                          size   = "large"
-                                                          color  = $color
-                                                      },
-                                                      @{
-                                                          type     = "TextBlock"
-                                                          text     = "👤 ${{ inputs.actor }}"
-                                                          spacing  = "small"
-                                                          isSubtle = $true
+                                                          size = "Small"
+                                                          style = "Person"
                                                       }
                                                   )
                                               }
@@ -138,23 +143,39 @@ jobs:
                                       }
                                   )
                               },
+                              # Corpo - Informações do Executor
                               @{
-                                  type  = "Container"
-                                  items = @(
+                                  type    = "Container"
+                                  spacing = "Medium"
+                                  items   = @(
                                       @{
-                                          type   = "TextBlock"
-                                          text   = "📋 Detalhes da Execução"
-                                          weight = "bolder"
-                                          size   = "medium"
+                                          type     = "TextBlock"
+                                          text     = "👤 **Iniciado por:** `@${{ inputs.actor }}`"
+                                          size     = "Medium"
+                                          isSubtle = $false
+                                      }
+                                  )
+                              },
+                              # Bloco - Detalhes em Tabela (FactSet)
+                              @{
+                                  type    = "Container"
+                                  spacing = "Medium"
+                                  items   = @(
+                                      @{
+                                          type     = "TextBlock"
+                                          text     = "⚙️ **Detalhes do Ambiente & Código**"
+                                          size     = "Small"
+                                          weight   = "Bolder"
+                                          isSubtle = $true
                                       },
                                       @{
                                           type  = "FactSet"
                                           facts = @(
-                                              @{ title = "Repositório"; value = "${{ inputs.repository }}" },
-                                              @{ title = "Ambiente"; value = "${{ inputs.ambiente }}" },
-                                              @{ title = "Workflow"; value = "${{ inputs.workflow }}" },
-                                              @{ title = "Status"; value = $statusLabel },
-                                              @{ title = "Commit"; value = $commit }
+                                              @{ title = "📦 Repositório"; value = "${{ inputs.repository }}" },
+                                              @{ title = "🚀 Ambiente";    value = "${{ inputs.ambiente }}" },
+                                              @{ title = "🔄 Workflow";    value = "${{ inputs.workflow }}" },
+                                              @{ title = "📌 Status";      value = "**$statusLabel**" },
+                                              @{ title = "⚡ Commit";      value = "`$commit`" }
                                           )
                                       }
                                   )
@@ -163,7 +184,7 @@ jobs:
                           actions    = @(
                               @{
                                   type  = "Action.OpenUrl"
-                                  title = "🚀 Ver Workflow"
+                                  title = "🔍 Ver Workflow"
                                   url   = "${{ inputs.server_url }}/${{ inputs.repository }}/actions/runs/${{ inputs.run_id }}"
                               },
                               @{
@@ -189,19 +210,16 @@ jobs:
               ContentType = "application/json; charset=utf-8"
           }
           
-          # Envolve em um bloco de tratamento para evitar que o log da Microsoft pinte o GitHub de vermelho
           try {
               $response = Invoke-RestMethod @requestParams
               Write-Host "Notificação enviada com sucesso: $response"
           }
           catch {
-              # Se o erro for apenas o aviso interno do Power Automate (Object reference), nós ignoramos
               if ($_.Exception.Message -match "Object reference" -or $_.Exception.Message -match "502" -or $_.Exception.Message -match "400") {
                   Write-Host "Aviso: O Teams recebeu o card com sucesso, mas retornou um alerta de processamento interno. Ignorando falso positivo."
                   exit 0
               }
               else {
-                  # Se for um erro real de rede ou URL inválida, aí sim quebra a pipeline
                   Write-Error "Erro real no envio da notificação: $_"
                   exit 1
               }
