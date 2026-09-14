@@ -63,6 +63,7 @@ jobs:
           if ([string]::IsNullOrWhiteSpace($webhookUri)) {
               throw "Webhook do Teams não foi carregado."
           }
+          
           $status = "${{ inputs.status }}"
           $commit = "${{ inputs.sha }}"
 
@@ -75,18 +76,16 @@ jobs:
             $badgeEmoji = "🟢"
             $titleText = "Deploy concluído com sucesso"
             $statusLabel = "Sucesso"
-            $headerColor = "Good" # Verde no Adaptive Card
-            $accentHex = "#00E676"
+            $headerColor = "Good" 
           }
           else {
             $badgeEmoji = "🔴"
             $titleText = "Falha na execução do Deploy"
             $statusLabel = "Falha"
-            $headerColor = "Attention" # Vermelho no Adaptive Card
-            $accentHex = "#FF5252"
+            $headerColor = "Attention" 
           }
 
-          # Payload Adaptive Card v1.4 moderno e alinhado ao padrão Quicksoft
+          # Payload Adaptive Card v1.4 moderno e corrigido
           $jsonPayload = @{
               type        = "message"
               attachments = @(
@@ -132,9 +131,9 @@ jobs:
                                                   width = "auto"
                                                   items = @(
                                                       @{
-                                                          type = "Image"
-                                                          url  = "https://github.com/${{ inputs.actor }}.png?size=128"
-                                                          size = "Small"
+                                                          type  = "Image"
+                                                          url   = "https://github.com/${{ inputs.actor }}.png?size=128"
+                                                          size  = "Small"
                                                           style = "Person"
                                                       }
                                                   )
@@ -150,7 +149,7 @@ jobs:
                                   items   = @(
                                       @{
                                           type     = "TextBlock"
-                                          text     = "👤 **Iniciado por:** `@${{ inputs.actor }}`"
+                                          text     = "👤 **Iniciado por:** @${{ inputs.actor }}"
                                           size     = "Medium"
                                           isSubtle = $false
                                       }
@@ -175,7 +174,7 @@ jobs:
                                               @{ title = "🚀 Ambiente";    value = "${{ inputs.ambiente }}" },
                                               @{ title = "🔄 Workflow";    value = "${{ inputs.workflow }}" },
                                               @{ title = "📌 Status";      value = "**$statusLabel**" },
-                                              @{ title = "⚡ Commit";      value = "`$commit`" }
+                                              @{ title = "⚡ Commit";      value = "``$commit``" }
                                           )
                                       }
                                   )
