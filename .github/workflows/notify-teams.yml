@@ -85,7 +85,7 @@ jobs:
             $headerColor = "Attention" 
           }
 
-          # Payload Adaptive Card v1.4 moderno e corrigido
+          # Payload Adaptive Card v1.4 moderno e corrigido com Logo
           $jsonPayload = @{
               type        = "message"
               attachments = @(
@@ -106,9 +106,25 @@ jobs:
                                       @{
                                           type    = "ColumnSet"
                                           columns = @(
+                                              # COLUNA 1: Logo da Quicksoft (Horizontal)
+                                              @{
+                                                  type  = "Column"
+                                                  width = "auto"
+                                                  verticalContentAlignment = "Center"
+                                                  items = @(
+                                                      @{
+                                                          type  = "Image"
+                                                          # Substitua a URL abaixo pelo caminho real onde a imagem está
+                                                          url   = "https://SEU_DOMINIO_OU_GITHUB_AQUI/xquicksoft-lockup-horizontal-positivo-rgb.webp.pagespeed.ic.j7bcK1OE9z.webp"
+                                                          width = "130px"
+                                                      }
+                                                  )
+                                              },
+                                              # COLUNA 2: Textos de Título e Status
                                               @{
                                                   type  = "Column"
                                                   width = "stretch"
+                                                  verticalContentAlignment = "Center"
                                                   items = @(
                                                       @{
                                                           type     = "TextBlock"
@@ -126,9 +142,11 @@ jobs:
                                                       }
                                                   )
                                               },
+                                              # COLUNA 3: Avatar do Autor
                                               @{
                                                   type  = "Column"
                                                   width = "auto"
+                                                  verticalContentAlignment = "Center"
                                                   items = @(
                                                       @{
                                                           type  = "Image"
